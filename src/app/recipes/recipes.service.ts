@@ -7,21 +7,82 @@ import { Recipe } from './recipe.model';
 export class RecipesService {
   private recipes: Recipe[] = [
     {
-      id: 'r1',
-      title: 'Schnitzel',
+      id: '1',
+      title: 'Vegetarian Chili',
       imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Schnitzel.JPG/1024px-Schnitzel.JPG',
-      ingredients: ['French Fries', 'Pork Meat', 'Salad'],
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Nachos_with_guacamole.jpg/640px-Nachos_with_guacamole.jpg',
+      ingredients: [
+        'onion',
+        'garlic',
+        'bell pepper',
+        'tomatoes',
+        'kidney beans',
+        'corn',
+        'chili powder',
+        'cumin',
+      ],
     },
     {
-      id: 'r2',
-      title: 'Spaghetti',
+      id: '2',
+      title: 'Mushroom Risotto',
       imageUrl:
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg/1024px-Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg',
-      ingredients: ['Spaghetti', 'Meat', 'Tomatoes'],
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Mushroom_Risotto_%284790048714%29.jpg/640px-Mushroom_Risotto_%284790048714%29.jpg',
+      ingredients: [
+        'mushrooms',
+        'arborio rice',
+        'vegetable broth',
+        'onion',
+        'garlic',
+        'butter',
+        'parmesan cheese',
+      ],
+    },
+    {
+      id: '3',
+      title: 'Roasted Vegetable Lasagna',
+      imageUrl:
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Meaty_Lasagna_8of8_%288736299782%29.jpg/640px-Meaty_Lasagna_8of8_%288736299782%29.jpg',
+      ingredients: [
+        'zucchini',
+        'eggplant',
+        'red bell pepper',
+        'lasagna noodles',
+        'tomato sauce',
+        'ricotta cheese',
+        'mozzarella cheese',
+      ],
+    },
+    {
+      id: '4',
+      title: 'Spicy Black Bean Tacos',
+      imageUrl:
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Vegetables_and_Black_Bean_Tacos_%287212559656%29.jpg/640px-Vegetables_and_Black_Bean_Tacos_%287212559656%29.jpg',
+      ingredients: [
+        'black beans',
+        'taco shells',
+        'sour cream',
+        'avocado',
+        'cilantro',
+        'lime',
+        'jalapeno',
+      ],
+    },
+    {
+      id: '5',
+      title: 'Greek Salad',
+      imageUrl:
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Greek_Salad_Choriatiki.jpg/640px-Greek_Salad_Choriatiki.jpg',
+      ingredients: [
+        'tomatoes',
+        'cucumber',
+        'red onion',
+        'feta cheese',
+        'kalamata olives',
+        'lemon juice',
+        'olive oil',
+      ],
     },
   ];
-
   constructor() {}
 
   getAllRecipes() {
@@ -34,5 +95,10 @@ export class RecipesService {
         return recipe.id === recipeId;
       }),
     } as Recipe;
+  }
+  deleteRecipe(recipeId: string) {
+    this.recipes = this.recipes.filter((recipe) => {
+      return recipe.id !== recipeId;
+    });
   }
 }
