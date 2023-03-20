@@ -7,9 +7,11 @@ import { IonicModule } from '@ionic/angular';
 import { RecepiesPageRoutingModule } from './recipes-routing.module';
 
 import { RecipesPage } from './recipes.page';
+import { RecipeItemComponent } from './recipe-item/recipe-item.component';
 
 @NgModule({
   imports: [CommonModule, FormsModule, IonicModule, RecepiesPageRoutingModule],
-  declarations: [RecipesPage],
+  declarations: [RecipesPage, RecipeItemComponent],
+  exports: [RecipeItemComponent],
 })
 export class RecipesPageModule {}
